@@ -27,8 +27,8 @@ function rand(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 function spin() {
-    const audioOp = new Audio("/sounds/opening.mp3");
-    const audioWin = new Audio("/sounds/win.mp3");
+    const audioOp = new Audio("./sounds/opening.mp3");
+    const audioWin = new Audio("./sounds/win.mp3");
     audioOp.play();
     let offset = 1250;
     document.getElementById("spin-list").style.left = -offset + "rem";

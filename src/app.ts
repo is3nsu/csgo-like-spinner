@@ -47,8 +47,8 @@ function rand(min: number, max: number) {
 
 // spin button
 function spin() {
-  const audioOp = new Audio("/sounds/opening.mp3");
-  const audioWin = new Audio("/sounds/win.mp3");
+  const audioOp = new Audio("./sounds/opening.mp3");
+  const audioWin = new Audio("./sounds/win.mp3");
   audioOp.play();
   let offset = 1250;
   //   console.log(offset);
