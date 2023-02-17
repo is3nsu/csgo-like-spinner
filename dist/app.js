@@ -1,23 +1,27 @@
 "use strict";
-let spinBoxes = document.querySelector(".spin-list");
+const spinBoxes = document.querySelector(".spin-list");
+const spinBoxesId = document.getElementById("spin-list");
 const spinBtn = document.querySelector(".spin-btn");
 const addBtn = document.querySelector(".add-btn");
 const resetBtn = document.querySelector(".reset-btn");
 const input = document.querySelector(".add-player");
 const clearBtn = document.querySelector(".clear-btn");
-let boxAmount = 100;
+const audioOp = new Audio("./sounds/opening.mp3");
+const audioWin = new Audio("./sounds/win.mp3");
+const boxAmount = 55;
 let boxes = [];
+const mediaAudio = [audioOp, audioWin];
 spinBtn === null || spinBtn === void 0 ? void 0 : spinBtn.addEventListener("click", spin);
 addBtn === null || addBtn === void 0 ? void 0 : addBtn.addEventListener("click", addPlayer);
 resetBtn === null || resetBtn === void 0 ? void 0 : resetBtn.addEventListener("click", reset);
 clearBtn.addEventListener("click", clear);
 function init() {
     spinBoxes.innerHTML = "";
-    let initBets = ["player1", "player2"];
+    const initBets = [];
     for (let i = 0; i < boxAmount; i++) {
-        let randomPlayer = rand(0, initBets.length);
-        let box = document.createElement("li");
-        let nickname = document.createElement("span");
+        const randomPlayer = rand(0, initBets.length);
+        const box = document.createElement("li");
+        const nickname = document.createElement("span");
         nickname.innerHTML = initBets[randomPlayer];
         box.appendChild(nickname).classList.add("nickname");
         spinBoxes.appendChild(box).classList.add("spin-item");
@@ -26,38 +30,37 @@ function init() {
 function rand(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
+init();
 function spin() {
-    const audioOp = new Audio("./sounds/opening.mp3");
-    const audioWin = new Audio("./sounds/win.mp3");
+    reset();
     audioOp.play();
-    let offset = 1250;
-    document.getElementById("spin-list").style.left = -offset + "rem";
-    document.getElementById("spin-list").style.transitionDuration = "9s";
+    const offset = 1250;
     setTimeout(() => {
-        document.getElementById("spin-list").style.transitionDuration = "0s";
-        setTimeout(() => {
-            document.getElementById("spin-list").style.transitionDuration = "9s";
-        }, 90);
+        spinBoxesId.style.left = -offset + "rem";
+        spinBoxesId.style.transitionDuration = "9s";
+    }, 0);
+    setTimeout(() => {
+        spinBoxesId.style.transitionDuration = "0s";
         audioWin.play();
     }, 9000);
 }
-init();
 function addPlayer() {
     boxes.push(input.value);
-    let box = document.createElement("li");
+    const box = document.createElement("li");
     box.innerHTML = input.value;
-    let boxList = document.querySelector(".players");
+    const boxList = document.querySelector(".players");
     boxList.appendChild(box).classList.add("player");
     input.value = "";
+    reset();
 }
 function reset() {
     spinBoxes.innerHTML = "";
-    document.getElementById("spin-list").style.left = "0rem";
-    document.getElementById("spin-list").style.transitionDuration = "0s";
+    spinBoxesId.style.left = "0rem";
+    spinBoxesId.style.transitionDuration = "0s";
     for (let i = 0; i < boxAmount; i++) {
-        let randomPlayer = rand(0, boxes.length);
-        let box = document.createElement("li");
-        let nickname = document.createElement("span");
+        const randomPlayer = rand(0, boxes.length);
+        const box = document.createElement("li");
+        const nickname = document.createElement("span");
         nickname.innerHTML = boxes[randomPlayer];
         box.appendChild(nickname).classList.add("nickname");
         spinBoxes.appendChild(box).classList.add("spin-item");
