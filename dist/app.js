@@ -8,7 +8,7 @@ const input = document.querySelector(".add-player");
 const clearBtn = document.querySelector(".clear-btn");
 const audioOp = new Audio("./sounds/opening.mp3");
 const audioWin = new Audio("./sounds/win.mp3");
-const boxAmount = 55;
+const boxAmount = 155;
 let boxes = [];
 const mediaAudio = [audioOp, audioWin];
 spinBtn === null || spinBtn === void 0 ? void 0 : spinBtn.addEventListener("click", spin);

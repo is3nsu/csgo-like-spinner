@@ -9,7 +9,7 @@ const clearBtn: HTMLButtonElement = document.querySelector(".clear-btn")!;
 const audioOp: HTMLAudioElement = new Audio("./sounds/opening.mp3");
 const audioWin: HTMLAudioElement = new Audio("./sounds/win.mp3");
 
-const boxAmount: number = 55;
+const boxAmount: number = 155;
 let boxes: string[] = [];
 const mediaAudio: HTMLAudioElement[] = [audioOp, audioWin];
 
@@ -22,9 +22,11 @@ clearBtn.addEventListener("click", clear);
 // function mediaStop() {
 //   for (let i = 0; i < mediaAudio.length; i++) {
 //     mediaAudio[i].pause();
-//     if (mediaAudio[i].currentTime()) {  // not callable
-//       mediaAudio[i].currentTime(0);  //  not callable
-//     }
+//     mediaAudio[i].currentTime = 0;
+//     setTimeout(() => {
+//       mediaAudio[i].pause();
+//       mediaAudio[i].currentTime = 0;
+//     }, 9001);
 //   }
 // }
 
@@ -77,7 +79,7 @@ function addPlayer() {
 
 // reset button
 function reset() {
-  // mediaStop();  // see function
+  // mediaStop();
   spinBoxes.innerHTML = "";
   spinBoxesId.style.left = "0rem";
   spinBoxesId.style.transitionDuration = "0s";
