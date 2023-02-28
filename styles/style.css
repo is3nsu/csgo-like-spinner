@@ -291,7 +291,15 @@ main {
 
   .add-player {
     grid-column: 1 / -1;
-    width: 92%;
+    width: 100%;
+  }
+
+  .add-btn {
+    justify-self: center;
+  }
+
+  .clear-btn {
+    justify-self: center;
   }
 }
 
@@ -326,7 +334,15 @@ main {
 
   .add-player {
     grid-column: 1 / -1;
-    width: 92%;
+    width: 100%;
+  }
+
+  .add-btn {
+    justify-self: center;
+  }
+
+  .clear-btn {
+    justify-self: center;
   }
 }
 
@@ -361,6 +377,15 @@ main {
 
   .add-player {
     grid-column: 1 / -1;
-    width: 92%;
+    width: 100%;
+    justify-self: center;
+  }
+
+  .add-btn {
+    justify-self: center;
+  }
+
+  .clear-btn {
+    justify-self: center;
   }
 }
